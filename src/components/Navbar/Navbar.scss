@@ -1,0 +1,72 @@
+.navbar{
+    background-color: #83AEB0;
+    padding: 1.125rem 0;
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    &__left{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__toggle{
+        background: none;
+        border: none;
+
+        i{
+            font-size: 1.25rem;
+            color: #4B312F;
+            cursor: pointer;
+        }
+    }
+
+    &__brand{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__right{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--buttons{
+            display: flex;
+            gap: 1.5rem;
+
+            button{
+                background: none;
+                border: none;
+                cursor: pointer;
+                
+                i{
+                    font-size: 1.05rem;
+                    color: #4B312F;
+                }
+            }
+        }
+    }
+
+    &__menu{
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        margin: 0;
+        
+        li{
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #4B312F;
+        }
+    }
+}

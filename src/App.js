@@ -1,11 +1,11 @@
+import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     return (
-        <>
+        <main>
             <Navbar />
-            <h1>Hola Mundo</h1>
-        </>
+        </main>
     );
 }
 
