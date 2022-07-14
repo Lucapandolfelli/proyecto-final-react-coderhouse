@@ -1,4 +1,5 @@
 # Proyecto final del curso de React de Coderhouse
+![Imagen del proyecto](/public/assets/images/screenshot.png)
 
 ## Idea
 
