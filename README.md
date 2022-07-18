@@ -1,5 +1,5 @@
 # Proyecto final del curso de React de Coderhouse
-![Imagen del proyecto](/public/assets/images/screenshot.png)
+![Imagen del proyecto](/public/assets/images/screenshot2.png)
 
 ## Idea
 
