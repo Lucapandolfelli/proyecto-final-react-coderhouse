@@ -1,11 +1,13 @@
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 const App = () => {
     return (
-        <main>
+        <>
             <Navbar />
-        </main>
+            <ItemListContainer sectionTitle="Productos populares" />
+        </>
     );
 }
 

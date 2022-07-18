@@ -1,0 +1,32 @@
+@use '../../scss/utils/mixins.scss' as *;
+
+.item-list-container{
+
+    &__title{
+        font-weight: 400;
+        margin-bottom: 2em;
+    }
+
+    &__grid{
+        @include flex(center, center, row);
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+.product-card{
+    min-width: 300px;
+    border: 1px solid #232323;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    &__image{
+        width: 100%;
+        height: 250px;
+        background-color: #232323;
+    }
+
+    &__content{
+        padding: 1rem;
+    }
+}

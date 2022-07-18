@@ -1,0 +1,26 @@
+.cart-widget{
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    gap: .125rem;
+
+    i{
+        color: #4B312F;
+        font-size: 1.05rem;
+    }
+
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #4B312F;
+        height: 15px;
+        width: 15px;
+        padding: .5rem;
+        border-radius: 50%;
+        color: #fff;
+        font-size: .65rem;
+        transform: translateY(-8px);
+    }
+}

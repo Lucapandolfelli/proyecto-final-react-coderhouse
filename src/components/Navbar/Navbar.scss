@@ -1,19 +1,18 @@
+@use '../../scss/utils/mixins.scss' as *;
+@use '../../scss/utils/breakpoints.scss' as *;
+
 .navbar{
     background-color: #83AEB0;
     padding: 1.125rem 0;
 
     .container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(center, center, row);
         gap: 3rem;
     }
 
     &__left{
+        @include flex(space-between, center, row);
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     &__toggle{
@@ -34,14 +33,20 @@
     }
 
     &__right{
+        @include flex(space-between, center, row);
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+        @include mq-down(small){
+            justify-content: flex-end;
+        }
 
         &--buttons{
             display: flex;
             gap: 1.5rem;
+
+            @include mq-down(small){
+                gap: 1rem;
+            }
 
             button{
                 background: none;
@@ -61,6 +66,10 @@
         display: flex;
         gap: 3rem;
         margin: 0;
+
+        @include mq-down(small){
+            display: none;
+        }
         
         li{
             cursor: pointer;
@@ -68,5 +77,20 @@
             text-transform: uppercase;
             color: #4B312F;
         }
+    }
+
+    .overlay{
+        display: none;
+    }
+
+    .left-menu{
+        display: none;
+        height: 100vh;
+        width: 20%;
+        background-color: #83AEB0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .3s ease;
     }
 }
