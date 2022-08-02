@@ -4,3 +4,6 @@
 ## Idea
 
 Construir un ecommerce con React.js. El mismo será de una tienda de artículos vintage llamada "The Vintage Collection".
+
+## Detail Page
+![Imagen de la página de 'Detail'](/public/assets/images/detail-page.png)
