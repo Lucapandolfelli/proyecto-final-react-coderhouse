@@ -1,46 +1,28 @@
 import "./ItemListContainer.scss";
-import ItemCount from "../ItemCount/ItemCount";
+import ItemList from "../ItemList/ItemList";
+import { useState, useEffect } from "react";
+import products from "../../utils/products.mock.js";
 
 const ItemListContainer = ({ sectionTitle }) => {
+  const [listProducts, setListProducts] = useState([]);
+
+  const getProducts = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(products);
+    }, [2000]);
+  });
+
+  useEffect(() => {
+    getProducts
+      .then((res) => setListProducts(res))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <section className="section item-list-container">
-      <div className="container">
-        <h2 className="item-list-container__title">{sectionTitle}</h2>
-        <div className="item-list-container__grid">
-          {/* <article className="product-card">
-            <div className="product-card__image"></div>
-            <div className="product-card__content">
-              <h4>Product price</h4>
-              <span>Category</span>
-            </div>
-          </article>
-
-          <article className="product-card">
-            <div className="product-card__image"></div>
-            <div className="product-card__content">
-              <h4>Product price</h4>
-              <span>Category</span>
-            </div>
-          </article>
-
-          <article className="product-card">
-            <div className="product-card__image"></div>
-            <div className="product-card__content">
-              <h4>Product price</h4>
-              <span>Category</span>
-            </div>
-          </article>
-
-          <article className="product-card">
-            <div className="product-card__image"></div>
-            <div className="product-card__content">
-              <h4>Product price</h4>
-              <span>Category</span>
-            </div>
-          </article> */}
-
-          <ItemCount stock={20} initial={1} />
-        </div>
+    <section className="section">
+      <h2 className="item-list-container__title">{sectionTitle}</h2>
+      <div className="item-list-container__grid">
+        <ItemList products={listProducts} />
       </div>
     </section>
   );

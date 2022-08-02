@@ -1,29 +1,29 @@
-@use './breakpoints.scss' as *;
+@use "./breakpoints.scss" as *;
 
-.container{
-    width: min(100% - 4rem, 80em);
-    margin-inline: auto;
+.container {
+  width: min(100% - 5rem, 65em);
+  margin-inline: auto;
 }
 
-.overlay{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    cursor: pointer;
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
-.section{
-    padding: 2rem 0 3rem;
+.section {
+  padding: 2rem 0 3rem;
 
-    @include mq(small){
-        padding: 3rem 0 4rem;
-    }
+  @include mq(small) {
+    padding: 3rem 0 4rem;
+  }
 
-    @include mq(medium){
-        padding: 4rem 0 5rem;
-    }
+  @include mq(medium) {
+    padding: 4rem 0 5rem;
+  }
 }

@@ -1,0 +1,13 @@
+@use "../../scss/utils/breakpoints.scss" as *;
+
+.item-detail-container {
+  padding-top: 2rem;
+
+  @include mq(small) {
+    padding-top: 3rem;
+  }
+
+  @include mq(medium) {
+    padding-top: 4rem;
+  }
+}
