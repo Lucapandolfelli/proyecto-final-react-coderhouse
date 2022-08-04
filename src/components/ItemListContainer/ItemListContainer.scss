@@ -1,13 +1,14 @@
 @use "../../scss/utils/mixins.scss" as *;
 
 .item-list-container {
+  padding-top: 3rem;
   &__title {
     font-weight: 400;
     margin-bottom: 2em;
   }
 
   &__grid {
-    @include flex(center, center, row);
+    @include flex(flex-start, center, row);
     flex-wrap: wrap;
     gap: 1rem;
 

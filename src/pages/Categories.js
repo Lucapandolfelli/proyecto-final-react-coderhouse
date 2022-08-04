@@ -1,16 +1,16 @@
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import CategoryList from "../components/CategoryList/CategoryList";
 
-const Products = () => {
+const Categories = () => {
   return (
     <main className="site-page section">
       <section className="container">
         <CategoryList />
         <hr className="line" />
-        <ItemListContainer />
+        <ItemListContainer sectionTitle="Productos de category" />
       </section>
     </main>
   );
 };
 
-export default Products;
+export default Categories;

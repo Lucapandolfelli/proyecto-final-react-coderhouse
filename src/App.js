@@ -7,7 +7,9 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Details from "./pages/Details";
+import Categories from "./pages/Categories";
 import PageNotFound from "./pages/PageNotFound";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   return (
@@ -15,10 +17,12 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/productos" element={<Products />} />
         <Route path="/item/:id" element={<Details />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/category/:categoryId" element={<Categories />} />
+        <Route path="/nosotros" element={<About />} />
+        <Route path="/contacto" element={<Contact />} />
+        <Route path="/cart" element={<Checkout />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

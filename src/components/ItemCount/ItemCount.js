@@ -1,7 +1,7 @@
 import "./ItemCount.scss";
 import { useState } from "react";
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, quantitySelected }) => {
   const [counter, setCounter] = useState(initial);
 
   const increase = () => {
@@ -18,14 +18,21 @@ const ItemCount = ({ stock, initial }) => {
     }
   };
 
+  const onAdd = () => {
+    quantitySelected(counter);
+  };
+
   return (
     <div className="counter-item">
-      <h4>Counter</h4>
       <div className="counter">
         <button onClick={decrease}>-</button>
         <span>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
+      <span>{`${stock} productos disponibles`}</span>
+      <button className="btn" onClick={onAdd}>
+        Añadir al carrito
+      </button>
     </div>
   );
 };

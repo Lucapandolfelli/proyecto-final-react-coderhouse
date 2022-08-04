@@ -4,6 +4,7 @@
 .navbar {
   background-color: #83aeb0;
   padding: 1.125rem 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   .container {
     @include flex(center, center, row);
@@ -27,9 +28,12 @@
   }
 
   &__brand {
-    display: flex;
-    align-items: center;
+    @include flex(center, center, row);
     cursor: pointer;
+
+    a {
+      @include flex(center, center, row);
+    }
   }
 
   &__right {
