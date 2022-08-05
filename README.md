@@ -1,7 +1,7 @@
 # Proyecto final del curso de React de Coderhouse
 ![Imagen del proyecto](/public/assets/the-vintage-collection.gif)
 
-## Idea
+## Idea del proyecto y novedades
 
 La idea del proyecto final es construir un e-commerce de productos antiguos (o vintages). Es por eso que el diseño de la página busca mostrar esa sensación del estilo vintage pero llevado a algo más moderno. Actualemente ya posee navegación completa entre las páginas, los productos y las categorías. Estas últimas se muestran sobre el contenido de la página pero próximamente estarán inegradas al navbar. Además, ya se cuenta con la funcionalidad del ItemCount y su sincronización.
 
