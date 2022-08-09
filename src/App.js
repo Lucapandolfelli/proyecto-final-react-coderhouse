@@ -10,23 +10,26 @@ import Details from "./pages/Details";
 import Categories from "./pages/Categories";
 import PageNotFound from "./pages/PageNotFound";
 import Checkout from "./pages/Checkout";
+import CartProvider from "./context/CartContext";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Products />} />
-        <Route path="/item/:id" element={<Details />} />
-        <Route path="/category/:categoryId" element={<Categories />} />
-        <Route path="/nosotros" element={<About />} />
-        <Route path="/contacto" element={<Contact />} />
-        <Route path="/cart" element={<Checkout />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<Products />} />
+          <Route path="/item/:id" element={<Details />} />
+          <Route path="/category/:categoryId" element={<Categories />} />
+          <Route path="/nosotros" element={<About />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/cart" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   );
 };
 

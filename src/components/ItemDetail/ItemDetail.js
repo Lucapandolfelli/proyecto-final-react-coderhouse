@@ -93,6 +93,7 @@ const ItemDetail = ({ data }) => {
               stock={stock}
               initial={1}
               quantitySelected={setQuantitySelected}
+              productData={data}
             />
           )}
           <div className="item-detail__info--shipping">

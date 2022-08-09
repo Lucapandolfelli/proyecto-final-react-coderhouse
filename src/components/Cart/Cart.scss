@@ -1,0 +1,52 @@
+@use "../../scss/utils/mixins.scss" as *;
+
+.cart {
+  &__title {
+    color: #181818;
+    text-transform: uppercase;
+    margin-bottom: 1.5em;
+  }
+
+  &__list {
+    margin-bottom: 2rem;
+
+    ul {
+      @include flex(center, flex-start, column);
+      list-style: none;
+      gap: 1.25rem;
+    }
+
+    &--item {
+      @include flex(flex-start, center, row);
+      padding-inline: 1rem;
+      height: 80px;
+      width: 100%;
+      font-size: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__total {
+    @include flex(center, flex-start, column);
+    gap: 0.75rem;
+    font-size: 1rem;
+    /* padding-inline: 1rem; */
+
+    &--group {
+      @include flex(space-between, center, row);
+      width: 100%;
+    }
+
+    .total {
+      margin-top: 0.5rem;
+      align-items: flex-start;
+      color: #181818;
+      font-weight: 500;
+      font-size: 1.125rem;
+
+      span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

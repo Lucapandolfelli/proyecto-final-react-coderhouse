@@ -1,8 +1,11 @@
 import "./ItemCount.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const ItemCount = ({ stock, initial, quantitySelected }) => {
+const ItemCount = ({ stock, initial, quantitySelected, productData }) => {
   const [counter, setCounter] = useState(initial);
+
+  const { addProductToCart, countTotalShop } = useContext(CartContext);
 
   const increase = () => {
     setCounter(counter + 1);
@@ -19,6 +22,9 @@ const ItemCount = ({ stock, initial, quantitySelected }) => {
   };
 
   const onAdd = () => {
+    productData.quantity = counter;
+    addProductToCart(productData);
+    countTotalShop(productData.price, productData.quantity);
     quantitySelected(counter);
   };
 

@@ -6,7 +6,9 @@ import products from "../../utils/products.mock.js";
 
 const ItemListContainer = ({ sectionTitle }) => {
   const [listProducts, setListProducts] = useState([]);
+
   const { categoryId } = useParams();
+
   const filterByCategoryId = products.filter(
     (product) => product.categoryId == categoryId
   );
@@ -29,7 +31,7 @@ const ItemListContainer = ({ sectionTitle }) => {
     getProducts
       .then((res) => setListProducts(res))
       .catch((err) => console.log(err));
-  }, [listProducts, setListProducts]);
+  }, [categoryId]);
 
   return (
     <section className="item-list-container">

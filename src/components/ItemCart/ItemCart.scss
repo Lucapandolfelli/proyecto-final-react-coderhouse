@@ -1,0 +1,49 @@
+@use "../../scss/utils/mixins.scss" as *;
+
+.item-cart {
+  width: 100%;
+
+  &__card {
+    @include flex(space-between, center, row);
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    @include flex(space-between, center, row);
+    width: 80%;
+    padding-inline: 1rem;
+
+    p {
+      small {
+        color: rgba(#2e2e2e, 0.7);
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #83aeb0;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #679699;
+    }
+  }
+}

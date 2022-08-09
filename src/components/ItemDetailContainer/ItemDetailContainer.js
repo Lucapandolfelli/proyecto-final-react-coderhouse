@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
         }
       })
     );
-  }, [productData, setProductData]);
+  }, [id]);
 
   return (
     <section className="item-detail-container">
