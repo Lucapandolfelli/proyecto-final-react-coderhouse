@@ -1,5 +1,6 @@
 import "./Item.scss";
 import { Link } from "react-router-dom";
+import { changePriceFormat } from "../../helpers";
 
 const Item = ({ data }) => {
   const { id, title, price, categoryId, category, thumbnail, amountOfFees } =
@@ -15,14 +16,10 @@ const Item = ({ data }) => {
         </div>
         <div className="product-card__content">
           <h3>{title}</h3>
-          <span>${price}</span>
+          <span>{changePriceFormat(price)}</span>
           <p>
             <span>en {amountOfFees}x sin interés</span>
-            de{" "}
-            {Math.round(price / amountOfFees).toLocaleString("es-AR", {
-              currency: "ARS",
-              style: "currency",
-            })}
+            de {changePriceFormat(Math.round(price / amountOfFees))}
           </p>
         </div>
       </article>

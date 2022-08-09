@@ -1,6 +1,7 @@
 import "./ItemCart.scss";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { changePriceFormat } from "../../helpers";
 
 const ItemCart = ({ product }) => {
   const { totalPrice, setTotalPrice, removeItemOfCart } =
@@ -22,7 +23,7 @@ const ItemCart = ({ product }) => {
             <p>{product.title}</p>
             <small>Cantidad: {product.quantity}</small>
           </div>
-          <span>${product.price}</span>
+          <span>{changePriceFormat(product.price)}</span>
         </div>
       </div>
       <button

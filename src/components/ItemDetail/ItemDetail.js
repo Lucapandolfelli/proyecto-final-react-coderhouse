@@ -2,6 +2,7 @@ import "./ItemDetail.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
+import { changePriceFormat } from "../../helpers";
 
 const ItemDetail = ({ data }) => {
   const {
@@ -52,23 +53,16 @@ const ItemDetail = ({ data }) => {
         </div>
         <div className="item-detail__info">
           <h2 className="item-detail__info--title">{title}</h2>
-          <span className="item-detail__info--price">${price}</span>
-          {/* .toLocaleString("es-AR", {
-              currency: "ARS",
-              style: "currency",
-              maximumSignificantDigits: 3
-            }) */}
+          <span className="item-detail__info--price">
+            {price && changePriceFormat(price)}
+          </span>
           <div className="item-detail__info--payments">
             <p>
               <span>
                 <i className="fa-solid fa-credit-card"></i> {amountOfFees}{" "}
                 cuotas sin interés
               </span>
-              de{" "}
-              {Math.round(price / amountOfFees).toLocaleString("es-AR", {
-                currency: "ARS",
-                style: "currency",
-              })}
+              de {changePriceFormat(Math.round(price / amountOfFees))}
             </p>
             <p>
               <span>
