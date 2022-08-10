@@ -1,4 +1,5 @@
 import "./Checkout.scss";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import Cart from "../components/Cart/Cart";
@@ -127,7 +128,17 @@ const Checkout = () => {
             </div>
           </form>
           <div className="checkout-order">
-            {cartProducts.length > 0 ? <Cart /> : <p>Carrito vacio</p>}
+            {cartProducts.length > 0 ? (
+              <Cart />
+            ) : (
+              <div className="empty-cart">
+                <p>Tu carrito está vacío</p>
+                <div>
+                  <span>¿No sabés qué comprar?</span>
+                  <Link to="/productos">Encontrá tus productos</Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -7,9 +7,9 @@ const ItemCart = ({ product }) => {
   const { totalPrice, setTotalPrice, removeItemOfCart } =
     useContext(CartContext);
 
-  const handleRemoveButton = (prod_id, prod_price, prod_quantity) => {
-    removeItemOfCart(prod_id);
-    setTotalPrice(totalPrice - prod_price * prod_quantity);
+  const handleRemoveButton = (product) => {
+    removeItemOfCart(product);
+    setTotalPrice(totalPrice - product.price * product.quantity);
   };
 
   return (
@@ -28,9 +28,7 @@ const ItemCart = ({ product }) => {
       </div>
       <button
         className="item-cart__button"
-        onClick={() =>
-          handleRemoveButton(product.id, product.price, product.quantity)
-        }
+        onClick={() => handleRemoveButton(product)}
       >
         Eliminar producto
       </button>
