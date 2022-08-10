@@ -23,7 +23,7 @@ const CartProvider = ({ children }) => {
     setCartProducts(
       (prevState) => prevState.filter((item) => item.id !== product.id),
       setTotalProducts(totalProducts - product.quantity),
-      setTotalPrice(totalPrice - product.price)
+      setTotalPrice(totalPrice - product.price * product.quantity)
     );
   };
 

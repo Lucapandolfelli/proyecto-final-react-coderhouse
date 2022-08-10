@@ -23,7 +23,7 @@ const ItemCart = ({ product }) => {
             <p>{product.title}</p>
             <small>Cantidad: {product.quantity}</small>
           </div>
-          <span>{changePriceFormat(product.price)}</span>
+          <span>{changePriceFormat(product.price * product.quantity)}</span>
         </div>
       </div>
       <button
