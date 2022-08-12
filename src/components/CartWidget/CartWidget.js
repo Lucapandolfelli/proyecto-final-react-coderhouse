@@ -7,7 +7,7 @@ const CartWidget = () => {
   return (
     <button className="cart-widget">
       <i className="fa-solid fa-cart-shopping"></i>
-      {totalProducts != 0 && <span>{totalProducts}</span>}
+      {totalProducts !== 0 && <span>{totalProducts}</span>}
     </button>
   );
 };

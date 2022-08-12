@@ -1,14 +1,21 @@
 import "./Navbar.scss";
+import { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import LeftMenu from "../LeftMenu/LeftMenu";
 import { NavLink, Link } from "react-router-dom";
 import TopBar from "../TopBar/TopBar";
 
 const Navbar = () => {
+  const [showLeftMenu, setShowLeftMenu] = useState(false);
+
   const handleToggleMenu = () => {
-    let leftMenu = document.getElementsByClassName("left-menu");
-    leftMenu.style.display = "block";
+    if (showLeftMenu === true) {
+      setShowLeftMenu(false);
+    } else {
+      setShowLeftMenu(true);
+    }
   };
+
   return (
     <>
       <TopBar />
@@ -16,7 +23,10 @@ const Navbar = () => {
         <nav className="navbar">
           <div className="container">
             <div className="navbar__left">
-              <button className="navbar__toggle">
+              <button
+                className="navbar__toggle"
+                onClick={() => handleToggleMenu()}
+              >
                 <i className="fa-solid fa-bars"></i>
               </button>
               <ul className="navbar__menu">
@@ -83,7 +93,9 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <LeftMenu />
+          {showLeftMenu === true ? (
+            <LeftMenu setShowLeftMenu={setShowLeftMenu} />
+          ) : undefined}
         </nav>
       </header>
     </>
