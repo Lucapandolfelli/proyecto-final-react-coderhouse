@@ -11,6 +11,4 @@ Algo que me olvidé de mostrar en el GIF es que también te redirige a la catego
 
 ### Novedades
 
-Se implementó un context para el carrito de productos, el cual permite añadirlos sin que se repitan, sumar el total de la compra teniendo en cuenta no solo la cantidad de productos del carrito sino también la cantidad de un mismo producto elegida con el 'itemCount'. En la página de checkout se añadió también un formulario que simula la finalización de una compra, pero probablemente se cambie aparte ya que pienso implementar un carrito similar al de MercadoLibre.
-
-Como dato no menor, se creó una función auxiliar que permite formatear el precio de los productos al estilo de formato argentino.
+No hay novedades por el momento.
