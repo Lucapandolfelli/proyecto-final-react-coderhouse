@@ -6,6 +6,7 @@
 
   &-form {
     @include flex(flex-start, flex-start, column);
+    background-color: #f4f4f4;
     gap: 2rem;
     width: 60%;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -91,6 +92,7 @@
 
   &-order {
     height: fit-content;
+    background-color: #f4f4f4;
     width: 40%;
     color: #2e2e2e;
     border: 1px solid rgba(0, 0, 0, 0.1);

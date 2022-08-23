@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import products from "../../utils/products.mock.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../../utils/firebaseConfig";
 
 const ItemListContainer = ({ sectionTitle }) => {
   const [listProducts, setListProducts] = useState([]);
@@ -13,24 +15,38 @@ const ItemListContainer = ({ sectionTitle }) => {
     (product) => product.categoryId == categoryId
   );
 
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (categoryId) {
-        if (filterByCategoryId.length > 0) {
-          resolve(filterByCategoryId);
-        } else {
-          resolve([]);
-        }
-      } else {
-        resolve(products);
-      }
+  const getProducts = async () => {
+    const productsCollection = collection(db, "products");
+    const productsSnapshot = await getDocs(productsCollection);
+    const productsList = productsSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
     });
-  });
+    return productsList;
+  };
+
+  const getProductsByCategory = async (id) => {
+    const q = query(collection(db, "products"), where("categoryId", "==", id));
+    const productsByCategorySnapshot = await getDocs(q);
+    const productsList = productsByCategorySnapshot.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
+    });
+    return productsList;
+  };
 
   useEffect(() => {
-    getProducts
-      .then((res) => setListProducts(res))
-      .catch((err) => console.log(err));
+    if (categoryId !== undefined) {
+      getProductsByCategory(categoryId)
+        .then((res) => setListProducts(res))
+        .catch((err) => console.log(err));
+    } else {
+      getProducts()
+        .then((res) => setListProducts(res))
+        .catch((err) => console.log(err));
+    }
   }, [categoryId]);
 
   return (
@@ -39,11 +55,13 @@ const ItemListContainer = ({ sectionTitle }) => {
         {sectionTitle ? `${sectionTitle}` : "Productos"}
       </h2>
       <div className="item-list-container__grid">
-        {listProducts.length > 0 ? (
+        {/* {listProducts.length > 0 ? (
           <ItemList products={listProducts} />
         ) : (
           <p>No se han encontrado productos de esta categoría.</p>
-        )}
+        )} */}
+
+        {console.log(listProducts)}
       </div>
     </section>
   );

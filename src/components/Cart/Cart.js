@@ -7,13 +7,13 @@ import { changePriceFormat } from "../../helpers";
 const Cart = () => {
   const { cartProducts, totalPrice } = useContext(CartContext);
 
-  const tax = 5;
+  /* const tax = 5;
 
   const addTax = (tax) => {
     return Math.round((totalPrice * tax) / 100);
   };
 
-  const total = totalPrice + addTax(tax);
+  const total = totalPrice + addTax(tax); */
 
   return (
     <article className="cart">
@@ -27,16 +27,16 @@ const Cart = () => {
       </div>
       <div className="cart__total">
         <div className="cart__total--group">
-          <p>Total de la compra</p>
+          <p>Productos</p>
           <span>{changePriceFormat(totalPrice)}</span>
         </div>
-        <div className="cart__total--group">
+        {/* <div className="cart__total--group">
           <p>Impuesto estimado ({tax}%)</p>
           <span>{changePriceFormat(addTax(tax))}</span>
-        </div>
+        </div> */}
         <div className="cart__total--group total">
-          <p>Total</p>
-          <span>{changePriceFormat(total)}</span>
+          <p>Pagá</p>
+          <span>{changePriceFormat(totalPrice)}</span>
         </div>
       </div>
     </article>
