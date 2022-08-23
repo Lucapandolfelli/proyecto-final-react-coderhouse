@@ -55,13 +55,11 @@ const ItemListContainer = ({ sectionTitle }) => {
         {sectionTitle ? `${sectionTitle}` : "Productos"}
       </h2>
       <div className="item-list-container__grid">
-        {/* {listProducts.length > 0 ? (
+        {listProducts.length > 0 ? (
           <ItemList products={listProducts} />
         ) : (
           <p>No se han encontrado productos de esta categoría.</p>
-        )} */}
-
-        {console.log(listProducts)}
+        )}
       </div>
     </section>
   );
