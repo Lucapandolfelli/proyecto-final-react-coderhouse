@@ -11,4 +11,4 @@ Algo que me olvidé de mostrar en el GIF es que también te redirige a la catego
 
 ### Novedades
 
-No hay novedades por el momento.
+Se integró Firebase para traer los productos que se carguen en la base de datos. Además se trató de implementar las categorias dinámicas en Firebase pero por el momento no funcionó.
