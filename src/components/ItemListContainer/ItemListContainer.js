@@ -7,6 +7,7 @@ import db from "../../utils/firebaseConfig";
 
 const ItemListContainer = ({ sectionTitle }) => {
   const [listProducts, setListProducts] = useState([]);
+  const [category, setCategory] = useState({});
 
   const { categoryId } = useParams();
 
@@ -32,8 +33,18 @@ const ItemListContainer = ({ sectionTitle }) => {
       product.id = doc.id;
       return product;
     });
-    console.log(productsList);
     return productsList;
+  };
+
+  const getCategoryById = async (id) => {
+    const categoriesCollection = collection(db, "categories");
+    const categoriesSnapshot = await getDocs(categoriesCollection);
+    const categoriesList = categoriesSnapshot.docs.map((doc) => {
+      let category = doc.data();
+      category.id = doc.id;
+      return category;
+    });
+    return categoriesList.find((item) => item.id === id);
   };
 
   useEffect(() => {
@@ -42,6 +53,9 @@ const ItemListContainer = ({ sectionTitle }) => {
         .then((res) => setListProducts(res))
         .catch((err) => console.log(err));
     } else {
+      getCategoryById(categoryId)
+        .then((res) => setCategory(res))
+        .catch((err) => console.log(err));
       getProductsByCategory(categoryId)
         .then((res) => setListProducts(res))
         .catch((err) => console.log(err));
@@ -55,7 +69,7 @@ const ItemListContainer = ({ sectionTitle }) => {
       </h2>
       <div className="item-list-container__grid">
         {listProducts.length > 0 ? (
-          <ItemList products={listProducts} />
+          <ItemList products={listProducts} category={category} />
         ) : (
           <p>No se han encontrado productos de esta categoría.</p>
         )}
