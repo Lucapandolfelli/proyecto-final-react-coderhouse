@@ -9,6 +9,8 @@ import { addDoc, collection } from "firebase/firestore";
 const Checkout = () => {
   const { cartProducts, totalPrice } = useContext(CartContext);
 
+  const [success, setSuccess] = useState();
+
   const [order, setOrder] = useState({
     items: cartProducts.map((product) => {
       return {
@@ -37,6 +39,7 @@ const Checkout = () => {
   const pushFormData = async (newOrder) => {
     const orderCollection = collection(db, "orders");
     const orderSnapshot = await addDoc(orderCollection, newOrder);
+    setSuccess(orderSnapshot.id);
     console.log("orden cargada:", orderSnapshot);
   };
 
@@ -163,7 +166,7 @@ const Checkout = () => {
                     type="text"
                     name="expiration_date"
                     id="expiration_date"
-                    pattern="\d{1,2}/\d{1,2}/\d{4}"
+                    /* pattern="\d{1,2}/\d{1,2}/\d{4}" */
                     placeholder="00 / 00 / 0000"
                   />
                 </div>
@@ -171,6 +174,11 @@ const Checkout = () => {
               <button type="submit" className="checkout-form__payments--btn">
                 Finalizar compra
               </button>
+              {success && (
+                <div>
+                  Orden generada correctamente. ID de su compra {success}
+                </div>
+              )}
             </div>
           </form>
           <div className="checkout-order">
