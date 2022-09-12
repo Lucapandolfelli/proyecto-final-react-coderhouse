@@ -11,4 +11,4 @@ Algo que me olvidé de mostrar en el GIF es que también te redirige a la catego
 
 ### Novedades
 
-ACTUALIZACIÓN DE ÚLTIMO MOMENTO. Se pudo hacer funcionar el filtrado por categoría.
+El filtrado por categoría funciona perfectamente. Se intentó implementar un filtrado para otros campos, como el del precio por ejemplo, pero no se pudo. Se completó la funcionalidad de la creación de ordenes y se implementó un componente llamado "Success" que notifica que se realizó la orden con éxito y digital el código de la misma en pantalla.
