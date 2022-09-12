@@ -11,6 +11,8 @@ const Home = () => {
           <CategoryList />
           <hr className="line" />
           <ItemListContainer sectionTitle="Productos populares" />
+          <hr className="line home-line" />
+          <ItemListContainer sectionTitle="Productos destacados" />
         </div>
       </main>
     </>

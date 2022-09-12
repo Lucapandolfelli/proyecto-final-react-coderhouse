@@ -7,7 +7,10 @@ const Details = () => {
       <div className="container">
         <ItemDetailContainer />
         <hr className="line" />
-        <ItemListContainer sectionTitle="Productos relacionados" />
+        <ItemListContainer
+          sectionTitle="Productos relacionados"
+          filter="price"
+        />
       </div>
     </main>
   );

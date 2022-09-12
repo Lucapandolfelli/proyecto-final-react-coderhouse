@@ -1,0 +1,32 @@
+@use "../../scss/utils/mixins.scss" as *;
+
+.success {
+  @include flex(center, center, column);
+  gap: 2rem;
+  height: 400px;
+  border: 1px solid rgba(99, 80, 79, 0.3);
+
+  &__icon {
+    width: 100px;
+  }
+
+  &__text {
+    text-align: center;
+
+    span {
+      font-weight: 600;
+      color: #4b312f;
+      font-size: 1.25rem;
+    }
+  }
+  a {
+    border: none;
+    color: #83aeb0;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #679699;
+    }
+  }
+}

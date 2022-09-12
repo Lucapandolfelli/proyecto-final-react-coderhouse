@@ -10,7 +10,7 @@ const ItemDetail = ({ data }) => {
     price,
     thumbnail,
     categoryId,
-    category,
+    categoryName,
     description,
     stock,
     amountOfFees,
@@ -24,7 +24,7 @@ const ItemDetail = ({ data }) => {
         <div className="item-detail__image">
           <img src={thumbnail} alt={title} />
           <Link to={`/category/${categoryId}`}>
-            <span className="item-detail__image--category">{category}</span>
+            <span className="item-detail__image--category">{categoryName}</span>
           </Link>
           <div className="item-detail__image--description">
             <h3>Descripción</h3>
@@ -33,17 +33,17 @@ const ItemDetail = ({ data }) => {
           <div className="item-detail__image--share">
             <h3>Compartir</h3>
             <ul>
-              <a href="" target="_blank">
+              <a href="#" target="_blank">
                 <li>
                   <i className="fa-brands fa-facebook"></i>
                 </li>
               </a>
-              <a href="" target="_blank">
+              <a href="#" target="_blank">
                 <li>
                   <i className="fa-brands fa-instagram"></i>
                 </li>
               </a>
-              <a href="" target="_blank">
+              <a href="#" target="_blank">
                 <li>
                   <i className="fa-brands fa-twitter"></i>
                 </li>

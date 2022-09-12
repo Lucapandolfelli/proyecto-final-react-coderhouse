@@ -1,7 +1,4 @@
-export const changePriceFormat = (originalPrice) => {
-  return originalPrice.toLocaleString("es-AR", {
-    currency: "ARS",
-    style: "currency",
-    maximumSignificantDigits: 3,
-  });
-};
+import changePriceFormat from "./changePriceFormat.js";
+import getCategoryById from "./getCategoryById.js";
+
+export { changePriceFormat, getCategoryById };

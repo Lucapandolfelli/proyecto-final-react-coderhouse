@@ -1,11 +1,11 @@
 import "./ItemList.scss";
 import Item from "../Item/Item";
 
-const ItemList = ({ products, category }) => {
+const ItemList = ({ products }) => {
   return (
     <>
       {products.map((product) => {
-        return <Item key={product.id} data={product} category={category} />;
+        return <Item key={product.id} data={product} />;
       })}
     </>
   );

@@ -1,4 +1,25 @@
-footer {
-  height: 40vh;
+@use "../../scss/utils/mixins.scss" as *;
+
+.footer {
   background-color: #83aeb0;
+
+  &__content {
+    height: 150px;
+  }
+
+  &__copyright {
+    @include flex(center, center, row);
+    background-color: #679699;
+    padding-block: 0.5rem;
+
+    p {
+      color: #f4f4f4;
+      font-size: 1rem;
+      font-weight: 300;
+
+      span {
+        color: blanchedalmond;
+      }
+    }
+  }
 }

@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../utils/firebaseConfig";
+import ItemNotFound from "../ItemNotFound/ItemNotFound";
 
-const ItemListContainer = ({ sectionTitle }) => {
+const ItemListContainer = ({ sectionTitle, filter }) => {
   const [listProducts, setListProducts] = useState([]);
-  const [category, setCategory] = useState({});
 
   const { categoryId } = useParams();
 
@@ -15,6 +15,42 @@ const ItemListContainer = ({ sectionTitle }) => {
     const productsCollection = collection(db, "products");
     const productsSnapshot = await getDocs(productsCollection);
     const productsList = productsSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
+    });
+    return productsList;
+  };
+
+  const getProductsBy = async (filterType) => {
+    let param;
+    let condition;
+    let value;
+    switch (filterType) {
+      case "appreciation":
+        param = "appreciation";
+        condition = "==";
+        value = 5;
+        break;
+
+      case "category":
+        param = "categoryId";
+        condition = "==";
+        value = parseInt(categoryId, 10);
+        break;
+
+      case "price":
+        param = "price";
+        condition = ">=";
+        value = 5500;
+        break;
+
+      default:
+        break;
+    }
+    const q = query(collection(db, "products"), where(param, condition, value));
+    const productsBySnapshot = await getDocs(q);
+    const productsList = productsBySnapshot.docs.map((doc) => {
       let product = doc.data();
       product.id = doc.id;
       return product;
@@ -36,26 +72,18 @@ const ItemListContainer = ({ sectionTitle }) => {
     return productsList;
   };
 
-  const getCategoryById = async (id) => {
-    const categoriesCollection = collection(db, "categories");
-    const categoriesSnapshot = await getDocs(categoriesCollection);
-    const categoriesList = categoriesSnapshot.docs.map((doc) => {
-      let category = doc.data();
-      category.id = doc.id;
-      return category;
-    });
-    return categoriesList.find((item) => item.id === id);
-  };
-
   useEffect(() => {
+    if (filter) {
+      getProductsBy(filter)
+        .then((res) => setListProducts(res))
+        .then(console.log("filtrados", listProducts))
+        .catch((err) => console.log(err));
+    }
     if (!categoryId) {
       getProducts()
         .then((res) => setListProducts(res))
         .catch((err) => console.log(err));
     } else {
-      getCategoryById(categoryId)
-        .then((res) => setCategory(res))
-        .catch((err) => console.log(err));
       getProductsByCategory(categoryId)
         .then((res) => setListProducts(res))
         .catch((err) => console.log(err));
@@ -69,9 +97,9 @@ const ItemListContainer = ({ sectionTitle }) => {
       </h2>
       <div className="item-list-container__grid">
         {listProducts.length > 0 ? (
-          <ItemList products={listProducts} category={category} />
+          <ItemList products={listProducts} />
         ) : (
-          <p>No se han encontrado productos de esta categoría.</p>
+          <ItemNotFound />
         )}
       </div>
     </section>

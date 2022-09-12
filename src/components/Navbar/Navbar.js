@@ -27,7 +27,7 @@ const Navbar = () => {
                 className="navbar__toggle"
                 onClick={() => handleToggleMenu()}
               >
-                <i className="fa-solid fa-bars"></i>
+                {/* <i className="fa-solid fa-bars"></i> */}
               </button>
               <ul className="navbar__menu">
                 <li>
@@ -84,9 +84,9 @@ const Navbar = () => {
                 </li>
               </ul>
               <div className="navbar__right--buttons">
-                <button>
+                {/* <button>
                   <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
+                </button> */}
                 <Link to="/cart">
                   <CartWidget />
                 </Link>

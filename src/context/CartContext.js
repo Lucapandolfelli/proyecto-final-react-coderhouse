@@ -27,6 +27,12 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartProducts([]);
+    setTotalPrice(0);
+    setTotalProducts(0);
+  };
+
   const data = {
     cartProducts,
     addProductToCart,
@@ -35,6 +41,7 @@ const CartProvider = ({ children }) => {
     countTotalShop,
     removeItemOfCart,
     totalProducts,
+    clearCart,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
